@@ -21,6 +21,12 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	admin := user.NewAdmin("test@example.com", "test123")
+
+	admin.User.OutputUserDetails()
+	admin.User.ClearUserName()
+	admin.User.OutputUserDetails()
+
 	appUser.OutputUserDetails()
 	appUser.ClearUserName()
 	appUser.OutputUserDetails()
