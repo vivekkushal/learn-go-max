@@ -24,11 +24,13 @@ func (u *User) OutputUserDetails() {
 	fmt.Println(u.firstName, u.lastName, u.birthDate) // shortcut allowed by GO
 }
 
+// mutation method
 func (u *User) ClearUserName() {
 	u.firstName = ""
 	u.lastName = ""
 }
 
+// 'admin' constructor function
 func NewAdmin(email, password string) Admin {
 	return Admin{
 		email:    email,
@@ -42,7 +44,8 @@ func NewAdmin(email, password string) Admin {
 	}
 }
 
-func NewUser(firstName, lastName, birthdate string) (*User, error) {
+// 'user' constructor function
+func New(firstName, lastName, birthdate string) (*User, error) {
 	// constructor validation (if needed)
 	if firstName == "" || lastName == "" || birthdate == "" {
 		return nil, errors.New("first name, last name and birthdate are required")
