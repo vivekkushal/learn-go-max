@@ -13,6 +13,7 @@ type User struct {
 	createdAt time.Time
 }
 
+// anonymous struct embedding - similar to class inheritance
 type Admin struct {
 	email    string
 	password string
@@ -31,6 +32,7 @@ func (u *User) ClearUserName() {
 }
 
 // 'admin' constructor function
+// not using pointer return feature this time just to have variety => copy of Admin struct will be created by this constructor function
 func NewAdmin(email, password string) Admin {
 	return Admin{
 		email:    email,
@@ -58,3 +60,27 @@ func New(firstName, lastName, birthdate string) (*User, error) {
 		createdAt: time.Now(),
 	}, nil
 }
+
+// ------------------
+
+// named struct embedding - similar to class inheritance
+// type Admin struct {
+// 	email    string
+// 	password string
+// 	user     User
+// }
+
+// 'admin' constructor function
+// not using pointer return feature this time just to have variety => copy of Admin struct will be created by this constructor function
+// func NewAdmin(email, password string) Admin {
+// 	return Admin{
+// 		email:    email,
+// 		password: password,
+// 		user: User{
+// 			firstName: "ADMIN",
+// 			lastName:  "ADMIN",
+// 			birthDate: "---",
+// 			createdAt: time.Now(),
+// 		},
+// 	}
+// }
